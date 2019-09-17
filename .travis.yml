@@ -1,0 +1,13 @@
+language: java
+
+services:
+    - docker
+
+before_install:
+    #- docker login -u <user> -p <password>
+
+script:
+    - mvn test
+    - mvn package
+    - docker build -t imagem .
+    - docker push imagem
